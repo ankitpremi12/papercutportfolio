@@ -34,8 +34,8 @@ export default function JourneyPage() {
                 <HandDrawnUnderline width={300} color="#D8F24E" className="absolute -bottom-4 left-0" strokeWidth={4} />
               </span>
             </h1>
-            <div className="absolute -top-12 -right-4 hidden md:block opacity-50 text-white">
-               <HandDrawnArrow direction="right" width={100} color="white" />
+            <div className="absolute -top-12 -right-4 hidden md:block opacity-50 text-white w-24">
+               <HandDrawnArrow direction="right" color="white" />
             </div>
           </motion.div>
 
