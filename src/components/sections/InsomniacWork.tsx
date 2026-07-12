@@ -41,24 +41,33 @@ export default function InsomniacWork() {
       </motion.div>
 
       {/* Collage layout */}
+      <style>{`
+        @media (min-width: 768px) {
+          .insomniac-card {
+            left: var(--md-left) !important;
+            top: var(--md-top) !important;
+            position: absolute !important;
+          }
+        }
+      `}</style>
       <motion.div
         variants={stagger}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.1 }}
-        className="relative min-h-[500px] md:min-h-[600px]"
+        className="relative flex flex-col md:block min-h-0 md:min-h-[600px] gap-8 md:gap-0"
       >
         {insomniacWork.map((item, i) => {
           const pos = positions[i % positions.length];
           return (
             <motion.div
               key={item.title}
-              className="absolute w-[240px] md:w-[280px]"
+              className="relative w-full sm:w-3/4 md:w-[280px] mx-auto insomniac-card"
               style={{
-                left: pos.x,
-                top: pos.y,
+                "--md-left": pos.x,
+                "--md-top": pos.y,
                 zIndex: item.zIndex,
-              }}
+              } as React.CSSProperties}
               initial={{
                 opacity: 0,
                 x: pos.from.x,
@@ -80,17 +89,17 @@ export default function InsomniacWork() {
               }}
             >
               <div
-                className="p-5 rounded-sm font-[family-name:var(--font-caveat)]"
+                className="p-5 md:p-6 rounded-sm font-[family-name:var(--font-caveat)]"
                 style={{
                   backgroundColor: item.color,
                   boxShadow: "var(--shadow-paper)",
                 }}
               >
                 {/* Tape */}
-                <div className="tape-strip absolute -top-2 left-1/2 -translate-x-1/2" />
+                <div className="tape-strip absolute -top-3 left-1/2 -translate-x-1/2" />
 
-                <h4 className="text-xl font-bold text-dark mb-2">{item.title}</h4>
-                <p className="text-sm text-dark/60">{item.description}</p>
+                <h4 className="text-xl md:text-2xl font-bold text-dark mb-2">{item.title}</h4>
+                <p className="text-base md:text-lg text-dark/70 leading-snug">{item.description}</p>
               </div>
             </motion.div>
           );
