@@ -137,17 +137,6 @@ export default function ProjectsInternships() {
           The Foundations Behind My Answers:
         </h3>
         <div className="flex flex-row overflow-x-auto pb-4 gap-6 scrollbar-none snap-x snap-mandatory justify-start md:justify-center items-center">
-          <Link href="/why-data-analyst" className="snap-center flex-shrink-0">
-            <div className="inline-block cursor-pointer transform hover:scale-105 hover:-rotate-1 active:scale-95 transition-all duration-200">
-              <StickyNote rotation={3} tapePosition="center" color="bg-lime/20" className="p-4 shadow-xl border border-dark/5 w-[220px] text-left">
-                <p className="font-mono text-[9px] font-bold mb-1 text-red-accent">DATA MINDSET</p>
-                <p className="font-[family-name:var(--font-caveat)] text-xl font-bold leading-tight text-dark">
-                  Why Ankit is a Data Analyst
-                </p>
-                <span className="font-mono text-[9px] text-blue-primary block mt-3 font-semibold">read the story →</span>
-              </StickyNote>
-            </div>
-          </Link>
 
           <Link href="/chart-library" className="snap-center flex-shrink-0">
             <div className="inline-block cursor-pointer transform hover:scale-105 hover:rotate-2 active:scale-95 transition-all duration-200">

@@ -66,8 +66,8 @@ export default function Hero() {
           className="relative z-10"
         >
           {/* Location sticky note */}
-          <motion.div variants={fadeUp} className="mb-8">
-            <StickyNote rotation={-3} className="inline-block text-base md:text-lg px-5 py-2.5">
+          <motion.div variants={fadeUp} className="mb-8" whileHover={{ scale: 1.05, rotate: 2 }} transition={{ type: "spring", stiffness: 400 }}>
+            <StickyNote rotation={-3} className="inline-block text-xl md:text-3xl px-6 py-3 shadow-2xl">
               📍 {siteConfig.location}
             </StickyNote>
           </motion.div>
@@ -98,7 +98,7 @@ export default function Hero() {
           {/* Tagline */}
           <motion.p
             variants={fadeUp}
-            className="text-blue-muted text-xl md:text-2xl max-w-lg mt-4 font-mono leading-relaxed"
+            className="text-blue-muted text-2xl md:text-3xl max-w-xl mt-6 font-mono leading-relaxed bg-dark/30 p-4 rounded-xl backdrop-blur-sm border border-white/5"
           >
             {siteConfig.tagline}
           </motion.p>

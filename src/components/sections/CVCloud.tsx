@@ -8,10 +8,10 @@ import { cvWords } from "@/lib/content";
 import HandDrawnUnderline from "../HandDrawnUnderline";
 
 const sizeMap = {
-  xl: "text-6xl md:text-8xl",
-  lg: "text-4xl md:text-6xl",
-  md: "text-3xl md:text-4xl",
-  sm: "text-2xl md:text-3xl",
+  xl: "text-7xl md:text-9xl",
+  lg: "text-5xl md:text-7xl",
+  md: "text-4xl md:text-5xl",
+  sm: "text-3xl md:text-4xl",
 };
 
 const weightMap = {
@@ -36,7 +36,7 @@ export default function CVCloud() {
       </motion.div>
 
       <motion.div
-        className="flex flex-wrap justify-center items-center gap-x-6 gap-y-4 max-w-5xl mx-auto"
+        className="flex flex-wrap justify-center items-center gap-x-8 gap-y-6 max-w-7xl mx-auto px-4"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, amount: 0.2 }}
