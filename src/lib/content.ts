@@ -22,9 +22,9 @@ export const siteConfig = {
 
 // ── Nav items ─────────────────────────────────
 export const navItems = [
-  { label: "Fastest way to know me", href: "#about" },
-  { label: "Best Work", href: "#best-work" },
-  { label: "Contact", href: "#contact" },
+  { label: "Fastest way to know me", href: "/journey" },
+  { label: "Best Work", href: "/#best-work" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 // ── Section IDs for scroll-spy ────────────────
@@ -508,5 +508,6 @@ export const cvWords: CVWord[] = [
 export const contactLinks = [
   { label: "Instagram", href: "https://www.instagram.com/_a4kit", icon: "instagram" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/ankit-premi-a37b37255/", icon: "linkedin" },
+  { label: "GitHub", href: "https://github.com/ankitpremi12", icon: "github" },
   { label: "Mail", href: "mailto:ankitpremiji@gmail.com", icon: "mail" },
 ];
