@@ -98,7 +98,7 @@ export default function Hero() {
           {/* Tagline */}
           <motion.p
             variants={fadeUp}
-            className="text-blue-muted text-2xl md:text-3xl max-w-xl mt-6 font-mono leading-relaxed bg-dark/30 p-4 rounded-xl backdrop-blur-sm border border-white/5"
+            className="text-blue-muted text-xl md:text-2xl max-w-lg mt-4 font-mono leading-relaxed"
           >
             {siteConfig.tagline}
           </motion.p>
