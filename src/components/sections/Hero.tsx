@@ -67,25 +67,27 @@ export default function Hero() {
         >
           {/* Location sticky note */}
           <motion.div variants={fadeUp} className="mb-8">
-            <StickyNote rotation={-3} className="inline-block text-sm px-4 py-2">
+            <StickyNote rotation={-3} className="inline-block text-base md:text-lg px-5 py-2.5">
               📍 {siteConfig.location}
             </StickyNote>
           </motion.div>
 
           {/* Career progression */}
-          <div className="space-y-3 mb-10">
+          <div className="space-y-4 mb-10">
             {siteConfig.roleProgression.map((item, i) => (
               <motion.div
                 key={item.prefix}
                 variants={fadeUp}
-                className="flex items-baseline gap-3"
+                whileHover={{ scale: 1.03, x: 10 }}
+                transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                className="flex items-baseline gap-3 cursor-pointer select-none origin-left group"
               >
-                <span className="text-blue-muted text-sm font-[family-name:var(--font-caveat)]">
+                <span className="text-blue-muted group-hover:text-lime text-base md:text-xl font-[family-name:var(--font-caveat)] transition-colors duration-200">
                   {item.prefix}
                 </span>
                 <span
-                  className="font-[family-name:var(--font-caveat)] text-white font-bold"
-                  style={{ fontSize: `${1.5 + i * 0.6}rem` }}
+                  className="font-[family-name:var(--font-caveat)] text-white group-hover:text-[#D8F24E] font-bold leading-none transition-colors duration-200"
+                  style={{ fontSize: `${2.0 + i * 0.7}rem` }}
                 >
                   {item.role}
                 </span>
@@ -96,7 +98,7 @@ export default function Hero() {
           {/* Tagline */}
           <motion.p
             variants={fadeUp}
-            className="text-blue-muted text-lg max-w-md"
+            className="text-blue-muted text-xl md:text-2xl max-w-lg mt-4 font-mono leading-relaxed"
           >
             {siteConfig.tagline}
           </motion.p>
