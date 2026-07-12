@@ -22,10 +22,6 @@ export const siteConfig = {
 
 // ── Nav items ─────────────────────────────────
 export const navItems = [
-  { label: "Why Data Analyst", href: "/why-data-analyst" },
-  { label: "Data Analyst Detail", href: "/data-analyst" },
-  { label: "Chart Library", href: "/chart-library" },
-  { label: "Algorithm Library", href: "/algorithm-library" },
   { label: "Best Work", href: "/#best-work" },
   { label: "Contact", href: "/#contact" },
 ];

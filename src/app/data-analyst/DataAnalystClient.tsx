@@ -431,26 +431,31 @@ export default function DataAnalystClient() {
           </div>
 
           <div className="bg-dark-card border border-white/10 rounded-md p-6 relative">
-            <div className="grid grid-cols-2 md:grid-cols-9 gap-2 items-center text-center">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-2 md:gap-1 text-center w-full">
               {workflowNodes.map((node, idx) => (
-                <div key={node.name} className="flex flex-col md:flex-row items-center gap-1">
+                <div key={node.name} className="flex flex-col md:flex-row items-center gap-1 flex-1 w-full min-w-0">
                   <div
                     onClick={() => setSelectedWorkflowIndex(selectedWorkflowIndex === idx ? null : idx)}
-                    className={`p-3 rounded border text-xs font-mono cursor-pointer transition-all duration-300 w-full ${
+                    className={`p-2.5 rounded border text-xs font-mono cursor-pointer transition-all duration-300 w-full min-w-0 ${
                       selectedWorkflowIndex === idx 
                         ? "bg-[#D8F24E] text-dark border-[#D8F24E] shadow-lg font-bold"
                         : "bg-white/5 border-white/10 text-white/90 hover:bg-white/10 hover:border-white/20"
                     }`}
                   >
-                    <span className="block font-bold">{node.name}</span>
-                    <span className={`text-[9px] uppercase tracking-wider block ${selectedWorkflowIndex === idx ? "text-dark/60" : "text-white/40"}`}>
+                    <span className="block font-bold text-[10px] lg:text-xs truncate">{node.name}</span>
+                    <span className={`text-[8px] lg:text-[9px] uppercase tracking-wider block truncate ${selectedWorkflowIndex === idx ? "text-dark/60" : "text-white/40"}`}>
                       {node.tool}
                     </span>
                   </div>
                   {idx < workflowNodes.length - 1 && (
-                    <span className="hidden md:block text-[#7C89E8] font-bold text-sm mx-1">
-                      ➔
-                    </span>
+                    <>
+                      <span className="hidden md:block text-[#7C89E8] font-bold text-xs mx-0.5 select-none flex-shrink-0">
+                        ➔
+                      </span>
+                      <span className="block md:hidden text-[#7C89E8] font-bold text-sm my-1 select-none">
+                        ⬇
+                      </span>
+                    </>
                   )}
                 </div>
               ))}
