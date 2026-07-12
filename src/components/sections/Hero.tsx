@@ -113,7 +113,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <Image
-              src="/images/IMG_0024.png"
+              src="/images/IMG_1430_Original.png"
               alt="Ankit Premi"
               width={420}
               height={448}

@@ -123,7 +123,7 @@ export default function AboutMe() {
 
               <div className="relative w-64 h-64 md:w-80 md:h-80 overflow-hidden rounded-full border-4 border-white shadow-2xl">
                 <Image
-                  src="/images/IMG_1430_Original.png"
+                  src="/images/IMG_0024.png"
                   alt="Ankit Premi"
                   fill
                   className="object-cover object-center scale-105 group-hover:scale-110 transition-transform duration-700"
