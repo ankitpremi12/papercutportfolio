@@ -51,7 +51,7 @@ export default function JourneyPage() {
 
           {/* The Shift */}
           <motion.div variants={fadeUp} className="relative my-16">
-            <StickyNote rotation={-2} tapePosition="top" color="bg-[#FFFDF5]" className="p-8 md:p-12 shadow-2xl max-w-3xl border border-dark/10">
+            <StickyNote rotation={-2} tapePosition="center" color="bg-[#FFFDF5]" className="p-8 md:p-12 shadow-2xl max-w-3xl border border-dark/10">
               <p className="font-[family-name:var(--font-caveat)] text-3xl md:text-4xl text-dark leading-snug">
                 Over time, I realized that writing a model is only a small part of building AI. The real challenge is creating systems that people can actually use.
               </p>
