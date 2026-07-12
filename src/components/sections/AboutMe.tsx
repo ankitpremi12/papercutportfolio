@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import StickyNote from "../StickyNote";
 import Polaroid from "../Polaroid";
+import Link from "next/link";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -70,7 +71,7 @@ export default function AboutMe() {
                   </svg>
                 </span> <br/>
                 Four years ago <br/>
-                Coz' I wanted to <br/>
+                Coz&apos; I wanted to <br/>
                 Build Cool Stuff <br/>
                 on my own :)
               </h2>
@@ -80,8 +81,8 @@ export default function AboutMe() {
               <p className="font-mono text-sm md:text-base text-dark/80 leading-relaxed mb-6">
                 It started with curiosity. I picked up Python, fell into data, and realized I could make machines learn patterns that humans miss. That felt like a superpower.
               </p>
-              <p className="font-[family-name:var(--font-caveat)] text-2xl text-blue-primary leading-snug">
-                Since then, I've built RAG systems,<br/>
+              <p className="font-[family-name:var(--font-caveat)] text-2xl text-blue-primary leading-snug mb-8">
+                Since then, I&apos;ve built RAG systems,<br/>
                 churn prediction pipelines,<br/>
                 and NLP models that solve real problems.
               </p>
@@ -100,7 +101,7 @@ export default function AboutMe() {
               transition={{ type: "spring", delay: 0.3 }}
             >
               <StickyNote rotation={-4} tapePosition="left" color="bg-[#FFF1F2]" className="p-4 shadow-xl max-w-[200px]">
-                <p className="font-mono text-xs font-bold mb-2">I'm an open book.</p>
+                <p className="font-mono text-xs font-bold mb-2">I&apos;m an open book.</p>
                 <p className="font-[family-name:var(--font-caveat)] text-xl leading-tight text-dark/80">
                   Here is the unfiltered timeline of how I figured things out.
                 </p>

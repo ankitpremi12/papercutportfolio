@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { sections } from "@/lib/content";
 import StickyNote from "../StickyNote";
 import HandDrawnUnderline from "../HandDrawnUnderline";
+import Link from "next/link";
 
 const stagger = {
   hidden: { opacity: 0 },
@@ -39,7 +40,7 @@ export default function TableOfContents() {
                 Entire portfolio is worth a look.
               </p>
               <p className="font-[family-name:var(--font-caveat)] text-xl text-dark/80 leading-tight">
-                But if you're short on time, jump straight to <a href="#best-work" className="text-blue-primary font-bold hover:underline">Best Work</a> section.
+                But if you&apos;re short on time, jump straight to <a href="#best-work" className="text-blue-primary font-bold hover:underline">Best Work</a> section.
               </p>
             </StickyNote>
           </motion.div>
@@ -52,11 +53,12 @@ export default function TableOfContents() {
           viewport={{ once: true, amount: 0.2 }}
           className="flex flex-col gap-4 md:gap-6"
         >
-          {sections.filter((s) => s.id !== "hero").map((section, index) => {
+          {sections.filter((s) => s.id !== "hero").map((section) => {
+            const href = (section as { href?: string }).href || `#${section.id}`;
             return (
               <motion.div key={section.id} variants={fadeUp} className="group w-fit">
-                <a
-                  href={`#${section.id}`}
+                <Link
+                  href={href}
                   className="flex flex-col md:flex-row md:items-end gap-1 md:gap-4"
                 >
                   <div className="relative">
@@ -74,7 +76,7 @@ export default function TableOfContents() {
                       ({section.note})
                     </span>
                   )}
-                </a>
+                </Link>
               </motion.div>
             );
           })}

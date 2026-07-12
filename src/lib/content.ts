@@ -22,7 +22,10 @@ export const siteConfig = {
 
 // ── Nav items ─────────────────────────────────
 export const navItems = [
-  { label: "Fastest way to know me", href: "/journey" },
+  { label: "Why Data Analyst", href: "/why-data-analyst" },
+  { label: "Data Analyst Detail", href: "/data-analyst" },
+  { label: "Chart Library", href: "/chart-library" },
+  { label: "Algorithm Library", href: "/algorithm-library" },
   { label: "Best Work", href: "/#best-work" },
   { label: "Contact", href: "/#contact" },
 ];
@@ -137,6 +140,7 @@ export const experiences: Experience[] = [
 // ── Certifications & Achievements ─────────────
 export const certifications = [
   { issuer: "Anthropic", title: "Claude 101" },
+  { issuer: "Microsoft", title: "Career Essentials in Generative AI" },
   { issuer: "DeepLearning.AI", title: "Supervised Machine Learning: Regression and Classification" },
   { issuer: "Google Cloud Skills Boost", title: "Explore Generative AI with Vertex AI Gemini API" },
   { issuer: "Google Cloud Skills Boost", title: "Enhance Gemini Model Capabilities" },
@@ -144,9 +148,15 @@ export const certifications = [
   { issuer: "Google Cloud Skills Boost", title: "Perform Predictive Data Analysis in BigQuery" },
   { issuer: "Google Cloud Skills Boost", title: "Build Infrastructure with Terraform on Google Cloud" },
   { issuer: "Deloitte", title: "Deloitte Data Analytics" },
-  { issuer: "Accenture", title: "Accenture Consultant Job Simulation" },
-  { issuer: "Indian Institute of Management Ahmedabad", title: "Associate in Management (IIM)" },
-  { issuer: "Indian Institute of Technology Delhi", title: "National Space Hackathon (IIT Delhi)" },
+  { issuer: "Stanford Online", title: "Statistics" },
+  { issuer: "Google", title: "Python" },
+];
+
+export const achievements = [
+  { issuer: "Indian Institute of Technology Delhi", title: "National Space Hackathon 2025" },
+  { issuer: "Indian Institute of Management Ahmedabad", title: "Associate in Management (AIM)" },
+  { issuer: "Fluxus – IIT Indore", title: "Face Recognition System" },
+  { issuer: "HackerRank", title: "Software Engineer" },
 ];
 
 // ── Beyond Models ─────────────────────────────
