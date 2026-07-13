@@ -28,12 +28,22 @@ const fadeUp = {
 };
 
 const curiosityQuestions = [
-  "What is the actual root cause behind a sudden drop in repeat visitors?",
-  "How can we spot transactional anomalies before billing loops occur?",
-  "Are users engaging with a feature because they love it or because they are lost?",
-  "How does geographic packing distribution impact direct margin yields?",
-  "Can we predict client churn based solely on database query latency spikes?",
-  "Which single metric actually correlates with long-term retention?"
+  {
+    question: "Which single metric actually correlates with long-term retention?",
+    payoff: "This inspired ChurnSense, proving that active session frequency, rather than contract value, is the primary predictor of customer churn.",
+    linkText: "View ChurnSense Case Study ➔",
+    linkHref: "/best-work/churnsense",
+  },
+  {
+    question: "How can we spot phishing domains before they are blacklisted?",
+    payoff: "Led to building our SLD Threat Classifier, utilizing custom lexical feature engineering to identify typosquatting in real time.",
+    linkText: "View Classifier Case Study ➔",
+    linkHref: "/best-work/sld-threat-classifier",
+  },
+  {
+    question: "Are users engaging with a feature because they love it or because they are lost?",
+    payoff: "A tracking analysis showed that high-interaction clicks on a new portal were actually due to a confusing navigation loop, leading to a redesigned menu.",
+  },
 ];
 
 export default function WhyDataAnalystClient() {
@@ -80,11 +90,18 @@ export default function WhyDataAnalystClient() {
             </h1>
           </motion.div>
 
-          <motion.div variants={fadeUp} className="pt-6">
-            <PullQuote 
-              text="Every numbers file has a pulse. Behind columns of metrics are human actions, operational friction points, and silent business bottlenecks waiting to be resolved." 
-              className="py-6 border-0"
-            />
+          {/* Recruiters' fast exit */}
+          <motion.div variants={fadeUp} className="flex flex-wrap gap-4 pt-4">
+            <Link href="/data-analyst">
+              <button className="bg-lime hover:bg-lime-dark text-dark px-6 py-2.5 rounded-sm font-bold text-xs tracking-wider uppercase transition-all duration-200 shadow-lg active:scale-95 transform">
+                Skip to Best Work ➔
+              </button>
+            </Link>
+            <Link href="/resume">
+              <button className="border border-white/20 hover:border-white hover:bg-white/10 text-white px-6 py-2.5 rounded-sm font-bold text-xs tracking-wider uppercase transition-all duration-200 active:scale-95 transform">
+                Jump to CV / Resume ➔
+              </button>
+            </Link>
           </motion.div>
         </motion.section>
 
@@ -101,7 +118,7 @@ export default function WhyDataAnalystClient() {
           </motion.h2>
           <motion.div variants={fadeUp} className="space-y-6 text-white/80 text-lg leading-relaxed font-sans">
             <p>
-              Not long ago, I was deep in code optimization loops, tweaking validation accuracy. I had built a prediction model targeting customer risk profiles that had a validation score of over 90%. I felt proud of the math.
+              Not long ago, while analyzing user patterns to model retention—similar to my data analysis work for **VOIS (Vodafone Intelligent Solutions)**—I was deep in code optimization loops, tweaking validation accuracy. I had built a prediction model targeting customer risk profiles that had a validation score of over 90%. I felt proud of the math.
             </p>
             <p>
               The next morning, I presented the output to the operations lead. I clicked through slides showing ROC curves and confusion matrices. I waited for approval.
@@ -111,6 +128,9 @@ export default function WhyDataAnalystClient() {
             </p>
             <p>
               I didn&apos;t have the answers. The mathematical model knew *who*, but it didn&apos;t understand *why*. That was the moment I realized that building code is only half the battle. The real challenge is translating variables into real, actionable decisions. I stepped out of the code sandbox and started asking questions first.
+            </p>
+            <p>
+              I immediately went back, merged the model&apos;s risk scores with customer support logs and billing history, and discovered that accounts waiting over 48 hours for ticket resolution were three times more likely to leave. Presenting that single operational correlation allowed the team to restructure their support queues and successfully retain key accounts.
             </p>
           </motion.div>
         </motion.section>
@@ -156,20 +176,37 @@ export default function WhyDataAnalystClient() {
           <div className="space-y-1">
             <span className="font-mono text-sm text-lime uppercase tracking-widest block">Inquiries</span>
             <h2 className="text-2xl md:text-3xl font-bold">Personal Curiosities</h2>
-            <p className="text-white/60 text-sm">A list of questions that capture my attention on any dataset:</p>
+            <p className="text-white/60 text-sm">A list of questions that capture my attention on any dataset and where they led:</p>
           </div>
 
-          <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-none snap-x snap-mandatory">
-            {curiosityQuestions.map((q, idx) => (
-              <div key={idx} className="flex-shrink-0 w-72 snap-center">
+          <div className="flex gap-6 overflow-x-auto pb-4 scrollbar-none snap-x snap-mandatory">
+            {curiosityQuestions.map((item, idx) => (
+              <div key={idx} className="flex-shrink-0 w-80 md:w-96 snap-center">
                 <PaperCard
                   variant="cream"
-                  rotation={idx % 2 === 0 ? 1 : -1.2}
-                  className="p-6 h-40 flex items-center justify-center text-center shadow-lg border border-dark/5"
+                  rotation={idx % 2 === 0 ? 0.8 : -0.8}
+                  className="p-6 h-64 flex flex-col justify-between shadow-lg border border-dark/5 text-dark"
                 >
-                  <p className="font-[family-name:var(--font-caveat)] text-xl font-bold text-dark leading-snug">
-                    &ldquo;{q}&rdquo;
-                  </p>
+                  <div>
+                    <p className="font-[family-name:var(--font-caveat)] text-lg md:text-xl font-bold leading-snug mb-3">
+                      &ldquo;{item.question}&rdquo;
+                    </p>
+                    <p className="text-xs md:text-sm text-dark/70 leading-relaxed font-sans">
+                      {item.payoff}
+                    </p>
+                  </div>
+                  {item.linkHref ? (
+                    <Link
+                      href={item.linkHref}
+                      className="text-xs font-bold text-blue-primary hover:underline mt-2 inline-flex items-center gap-1 font-mono uppercase"
+                    >
+                      {item.linkText}
+                    </Link>
+                  ) : (
+                    <span className="text-[10px] text-dark/45 font-mono uppercase tracking-wider mt-2 block">
+                      Internal Finding
+                    </span>
+                  )}
                 </PaperCard>
               </div>
             ))}
