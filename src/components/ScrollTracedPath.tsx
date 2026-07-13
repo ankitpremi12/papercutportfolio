@@ -33,13 +33,49 @@ export default function ScrollTracedPath({
   const svgRef = useRef<SVGSVGElement>(null);
   const pathRef = useRef<SVGPathElement>(null);
   const [pageHeight, setPageHeight] = useState(5000);
+  const [coords, setCoords] = useState<{ x: number; y: number }[]>([]);
   const dotRefs = useRef<(SVGCircleElement | null)[]>([]);
 
   useEffect(() => {
-    // Measure page height
-    const h = document.documentElement.scrollHeight;
-    setPageHeight(h);
+    const handleResize = () => {
+      setPageHeight(document.documentElement.scrollHeight);
+    };
+
+    // Initial measure
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+    window.addEventListener("load", handleResize);
+
+    // Dynamic layout shifts tracking
+    const observer = new ResizeObserver(() => {
+      handleResize();
+    });
+    observer.observe(document.documentElement);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("load", handleResize);
+      observer.disconnect();
+    };
   }, []);
+
+  // Compute coordinates only when pageHeight or pathRef changes to avoid render layout thrashing
+  useEffect(() => {
+    const path = pathRef.current;
+    if (!path) return;
+
+    const length = path.getTotalLength();
+    const computed = milestones.map((m) => {
+      try {
+        const pt = path.getPointAtLength(length * m.at);
+        return { x: pt.x, y: pt.y };
+      } catch (e) {
+        return { x: 100, y: m.at * pageHeight };
+      }
+    });
+    setCoords(computed);
+  }, [pageHeight, milestones]);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -169,15 +205,14 @@ export default function ScrollTracedPath({
 
       {/* Milestone dots */}
       {milestones.map((m, i) => {
-        const pointOnPath = pathRef.current?.getPointAtLength(
-          (pathRef.current?.getTotalLength() || 0) * m.at
-        );
+        const x = coords[i]?.x ?? 100;
+        const y = coords[i]?.y ?? (m.at * pageHeight);
         return (
           <circle
             key={m.label}
             ref={(el) => { dotRefs.current[i] = el; }}
-            cx={pointOnPath?.x || 100}
-            cy={pointOnPath?.y || m.at * pageHeight}
+            cx={x}
+            cy={y}
             r="8"
             fill={color}
             opacity="0.8"

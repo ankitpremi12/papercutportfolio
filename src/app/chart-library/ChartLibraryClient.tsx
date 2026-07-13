@@ -310,7 +310,7 @@ export default function ChartLibraryClient() {
         {/* ── BACK BUTTON ── */}
         <motion.div variants={fadeUp}>
           <Link
-            href="/#about"
+            href="/#projects"
             className="inline-flex items-center gap-2 font-[family-name:var(--font-caveat)] text-xl text-blue-muted hover:text-white transition-colors"
           >
             <HandDrawnArrow direction="left" color="#7C89E8" size={30} />
@@ -383,7 +383,16 @@ export default function ChartLibraryClient() {
                     <motion.div key={chart.id} variants={fadeUp} className="h-full">
                       <div 
                         onClick={() => toggleExpand(chart.id)}
-                        className="cursor-pointer h-full"
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter" || e.key === " ") {
+                            e.preventDefault();
+                            toggleExpand(chart.id);
+                          }
+                        }}
+                        role="button"
+                        tabIndex={0}
+                        aria-expanded={isExpanded}
+                        className="cursor-pointer h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-lime rounded-sm"
                       >
                         <PaperCard
                           variant={isExpanded ? "cream" : "dark"}
@@ -448,7 +457,7 @@ export default function ChartLibraryClient() {
           variants={stagger}
           className="text-center max-w-xl mx-auto pt-12"
         >
-          <BackToPortfolioButton href="/#about" label="Back to Portfolio" />
+          <BackToPortfolioButton href="/#projects" label="Back to Portfolio" />
         </motion.section>
 
       </main>

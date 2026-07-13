@@ -176,7 +176,7 @@ export default function DataAnalystClient() {
         {/* ── BACK BUTTON ── */}
         <motion.div variants={fadeUp}>
           <Link
-            href="/#best-work"
+            href="/#projects"
             className="inline-flex items-center gap-2 font-[family-name:var(--font-caveat)] text-xl text-blue-muted hover:text-white transition-colors"
           >
             <HandDrawnArrow direction="left" color="#7C89E8" size={30} />
@@ -794,8 +794,10 @@ export default function DataAnalystClient() {
                 
                 {[0, 60, 120, 180, 240, 300].map((deg) => {
                   const rad = (deg * Math.PI) / 180;
+                  const x2 = parseFloat((Math.cos(rad) * 90).toFixed(4));
+                  const y2 = parseFloat((Math.sin(rad) * 90).toFixed(4));
                   return (
-                    <line key={deg} x1="0" y1="0" x2={Math.cos(rad) * 90} y2={Math.sin(rad) * 90} stroke="rgba(255, 255, 255, 0.08)" strokeWidth="1" />
+                    <line key={deg} x1="0" y1="0" x2={x2} y2={y2} stroke="rgba(255, 255, 255, 0.08)" strokeWidth="1" />
                   );
                 })}
 
@@ -855,7 +857,7 @@ export default function DataAnalystClient() {
           viewport={{ once: true, amount: 0.3 }}
           className="text-center max-w-2xl mx-auto space-y-8"
         >
-          <BackToPortfolioButton href="/#best-work" label="Back to Portfolio" />
+          <BackToPortfolioButton href="/#projects" label="Back to Portfolio" />
         </motion.section>
 
       </main>

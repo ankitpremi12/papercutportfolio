@@ -127,6 +127,7 @@ export default function AboutMe() {
                   src="/images/IMG_0024.png"
                   alt="Ankit Premi"
                   fill
+                  sizes="(max-width: 768px) 256px, 320px"
                   className="object-cover object-center scale-105 group-hover:scale-110 transition-transform duration-700"
                 />
               </div>

@@ -5,7 +5,7 @@
 "use client";
 
 import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
-import { useRef, type ReactNode } from "react";
+import { useRef, type ReactNode, useState, useEffect } from "react";
 
 interface PaperCardProps {
   children: ReactNode;
@@ -34,6 +34,11 @@ export default function PaperCard({
   const cardRef = useRef<HTMLDivElement>(null);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
+  const [isHoverable, setIsHoverable] = useState(false);
+
+  useEffect(() => {
+    setIsHoverable(window.matchMedia("(hover: hover)").matches);
+  }, []);
 
   const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [6, -6]), {
     stiffness: 200,
@@ -45,7 +50,7 @@ export default function PaperCard({
   });
 
   function handleMouseMove(e: React.MouseEvent) {
-    if (!cardRef.current) return;
+    if (!isHoverable || !cardRef.current) return;
     const rect = cardRef.current.getBoundingClientRect();
     const x = (e.clientX - rect.left) / rect.width - 0.5;
     const y = (e.clientY - rect.top) / rect.height - 0.5;
@@ -54,6 +59,7 @@ export default function PaperCard({
   }
 
   function handleMouseLeave() {
+    if (!isHoverable) return;
     mouseX.set(0);
     mouseY.set(0);
   }

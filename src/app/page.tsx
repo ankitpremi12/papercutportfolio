@@ -15,8 +15,33 @@ import InsomniacWork from "@/components/sections/InsomniacWork";
 import CVCloud from "@/components/sections/CVCloud";
 import Contact from "@/components/sections/Contact";
 import ScrollTracedPath from "@/components/ScrollTracedPath";
+import { useEffect } from "react";
 
 export default function Home() {
+  useEffect(() => {
+    if (window.location.hash) {
+      const id = window.location.hash.substring(1);
+      const element = document.getElementById(id);
+      if (element) {
+        const scrollToElement = () => {
+          element.scrollIntoView({ behavior: "auto" });
+        };
+        
+        // Correct position progressively to handle layout shifts during hydration/rendering
+        scrollToElement();
+        const t1 = setTimeout(scrollToElement, 50);
+        const t2 = setTimeout(scrollToElement, 150);
+        const t3 = setTimeout(scrollToElement, 400);
+        
+        return () => {
+          clearTimeout(t1);
+          clearTimeout(t2);
+          clearTimeout(t3);
+        };
+      }
+    }
+  }, []);
+
   return (
     <div className="relative">
       {/* Global scroll-traced route line */}

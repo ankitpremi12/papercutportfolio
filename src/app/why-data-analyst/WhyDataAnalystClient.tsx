@@ -67,7 +67,7 @@ export default function WhyDataAnalystClient() {
         {/* ── BACK BUTTON ── */}
         <motion.div variants={fadeUp}>
           <Link
-            href="/#about"
+            href="/#projects"
             className="inline-flex items-center gap-2 font-[family-name:var(--font-caveat)] text-xl text-blue-muted hover:text-white transition-colors"
           >
             <HandDrawnArrow direction="left" color="#7C89E8" size={30} />
@@ -233,7 +233,7 @@ export default function WhyDataAnalystClient() {
                 View Interactive Case Study ➔
               </button>
             </Link>
-            <BackToPortfolioButton href="/#about" label="Back to Portfolio" />
+            <BackToPortfolioButton href="/#projects" label="Back to Portfolio" />
           </motion.div>
         </motion.section>
 

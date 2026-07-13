@@ -5,7 +5,7 @@
 
 import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
 import Image from "next/image";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 
 interface PolaroidProps {
   src: string;
@@ -29,6 +29,11 @@ export default function Polaroid({
   const cardRef = useRef<HTMLDivElement>(null);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
+  const [isHoverable, setIsHoverable] = useState(false);
+
+  useEffect(() => {
+    setIsHoverable(window.matchMedia("(hover: hover)").matches);
+  }, []);
 
   const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [4, -4]), {
     stiffness: 200,
@@ -40,7 +45,7 @@ export default function Polaroid({
   });
 
   function handleMouseMove(e: React.MouseEvent) {
-    if (!cardRef.current) return;
+    if (!isHoverable || !cardRef.current) return;
     const rect = cardRef.current.getBoundingClientRect();
     const x = (e.clientX - rect.left) / rect.width - 0.5;
     const y = (e.clientY - rect.top) / rect.height - 0.5;
@@ -49,6 +54,7 @@ export default function Polaroid({
   }
 
   function handleMouseLeave() {
+    if (!isHoverable) return;
     mouseX.set(0);
     mouseY.set(0);
   }
