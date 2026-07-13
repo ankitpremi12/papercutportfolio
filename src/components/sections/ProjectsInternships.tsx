@@ -136,26 +136,50 @@ export default function ProjectsInternships() {
         <h3 className="font-[family-name:var(--font-caveat)] text-3xl font-bold text-white mb-8">
           The Foundations Behind My Answers:
         </h3>
-        <div className="flex flex-row overflow-x-auto pb-4 gap-6 scrollbar-none snap-x snap-mandatory justify-start md:justify-center items-center">
+        <div className="flex flex-col gap-6 items-center md:flex-row md:justify-center md:flex-wrap">
 
-          <Link href="/chart-library" className="snap-center flex-shrink-0">
+          <Link href="/why-data-analyst" className="flex-shrink-0">
+            <div className="inline-block cursor-pointer transform hover:scale-105 hover:-rotate-1 active:scale-95 transition-all duration-200">
+              <StickyNote rotation={3} tapePosition="center" color="bg-lime/20" className="p-4 shadow-xl border border-dark/5 w-[220px] text-left">
+                <p className="font-mono text-[9px] font-bold mb-1 text-red-accent">DATA MINDSET</p>
+                <p className="font-[family-name:var(--font-caveat)] text-xl font-bold leading-tight text-dark">
+                  Why Ankit is <br className="sm:hidden" />a Data Analyst
+                </p>
+                <span className="font-mono text-[9px] text-blue-primary block mt-3 font-semibold">read the story →</span>
+              </StickyNote>
+            </div>
+          </Link>
+
+          <Link href="/data-analyst" className="flex-shrink-0">
+            <div className="inline-block cursor-pointer transform hover:scale-105 hover:rotate-1 active:scale-95 transition-all duration-200">
+              <StickyNote rotation={1.5} tapePosition="center" color="bg-[#FFFDF5]" className="p-4 shadow-xl border border-dark/5 w-[220px] text-left">
+                <p className="font-mono text-[9px] font-bold mb-1 text-blue-primary">CASE STUDY</p>
+                <p className="font-[family-name:var(--font-caveat)] text-xl font-bold leading-tight text-dark">
+                  Interactive Data <br className="sm:hidden" />Analyst Showcase
+                </p>
+                <span className="font-mono text-[9px] text-red-accent block mt-3 font-semibold">explore showcase →</span>
+              </StickyNote>
+            </div>
+          </Link>
+
+          <Link href="/chart-library" className="flex-shrink-0">
             <div className="inline-block cursor-pointer transform hover:scale-105 hover:rotate-2 active:scale-95 transition-all duration-200">
               <StickyNote rotation={-2} tapePosition="center" color="bg-[#FFFDF5]" className="p-4 shadow-xl border border-dark/5 w-[220px] text-left">
                 <p className="font-mono text-[9px] font-bold mb-1 text-blue-primary">VISUAL LITERACY</p>
                 <p className="font-[family-name:var(--font-caveat)] text-xl font-bold leading-tight text-dark">
-                  I&apos;m an Open Book — Let&apos;s See Different Types of Charts
+                  I&apos;m an Open Book — <br className="sm:hidden" />Let&apos;s See Different <br className="sm:hidden" />Types of Charts
                 </p>
                 <span className="font-mono text-[9px] text-red-accent block mt-3 font-semibold">explore library →</span>
               </StickyNote>
             </div>
           </Link>
 
-          <Link href="/algorithm-library" className="snap-center flex-shrink-0">
+          <Link href="/algorithm-library" className="flex-shrink-0">
             <div className="inline-block cursor-pointer transform hover:scale-105 hover:-rotate-2 active:scale-95 transition-all duration-200">
               <StickyNote rotation={-1.5} tapePosition="center" color="bg-blue-muted/30" className="p-4 shadow-xl border border-dark/5 w-[220px] text-left">
                 <p className="font-mono text-[9px] font-bold mb-1 text-red-accent">METHODOLOGY</p>
                 <p className="font-[family-name:var(--font-caveat)] text-xl font-bold leading-tight text-dark">
-                  The Methods Behind My Answers — Algorithms I Use
+                  The Methods Behind <br className="sm:hidden" />My Answers — <br className="sm:hidden" />Algorithms I Use
                 </p>
                 <span className="font-mono text-[9px] text-[#1E2FE0] block mt-3 font-semibold">explore algorithms →</span>
               </StickyNote>
